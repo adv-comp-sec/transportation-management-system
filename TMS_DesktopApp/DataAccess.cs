@@ -13,8 +13,7 @@ namespace TMS_DesktopApp
 {
     internal class DataAccess
     {
-        MySqlConnection connectionTmsDB = null;
-
+        MySqlConnection connection = null;
         /*
          * Function: ConnectTmsDB()
          * Description: This function establishes connection with database
@@ -24,17 +23,17 @@ namespace TMS_DesktopApp
          *            following likely to be changed: user, password, database
          * Params: NONE
          * Return: MySqlConnection connectionTmsDB, it returns instance of connection,
-         *          to interact with database you need to open() connection in your own code.
+         *          to interact with database you need to open() connection inside your own code.
          */
         public MySqlConnection ConnectTmsDB()
         {
                 //connection string
                 string connStr = "Server=localhost;user=root;password=*****;Database=tms_db;";
-                connectionTmsDB = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+                connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
                 try
                 {
-                    //test connectionTmsDB
-                    connectionTmsDB.Open();
+                    //test connection
+                    connection.Open();
                 }
                 catch (Exception ex)
                 {
@@ -42,9 +41,40 @@ namespace TMS_DesktopApp
                 }
                 finally
                 {
-                    connectionTmsDB.Close();
+                    connection.Close();
                 }
-                return connectionTmsDB;
+                return connection;
         }
+
+        /*
+         * Function: ConnectMarketDB()
+         * Description: This function establishes connection with Contract Market Place database
+         *              For example, you can connect db as below:
+         *                  MySqlConnection db = new DataAccess().ConnectMarketDB();
+         * Params: NONE
+         * Return: MySqlConnection connection, it returns instance of connection,
+         *          to interact with database you need to open() connection inside your own code.
+         */
+        public MySqlConnection ConnectMarketDB()
+        {
+            //connection string
+            string connStr = "Server=159.89.117.198;Port=3306;user=DevOSHT;password=Snodgr4ss!;Database=cmp;";
+            connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+            try
+            {
+                //test connection
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return connection;
+        }
+
     }
 }
