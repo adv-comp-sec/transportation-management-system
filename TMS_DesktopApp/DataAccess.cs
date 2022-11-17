@@ -45,6 +45,36 @@ namespace TMS_DesktopApp
                 }
                 return connection;
         }
+
+        /*
+ * Function: ConnectMarketDB()
+ * Description: This function establishes connection with Contract Market Place database
+ *              For example, you can connect db as below:
+ *                  MySqlConnection db = new DataAccess().ConnectMarketDB();
+ * Params: NONE
+ * Return: MySqlConnection connection, it returns instance of connection,
+ *          to interact with database you need to open() connection in your own code.
+ */
+        public MySqlConnection ConnectMarketDB()
+        {
+            //connection string
+            string connStr = "Server=159.89.117.198;Port=3306;user=DevOSHT;password=Snodgr4ss!;Database=cmp;";
+            connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+            try
+            {
+                //test connection
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return connection;
         }
+
     }
 }
