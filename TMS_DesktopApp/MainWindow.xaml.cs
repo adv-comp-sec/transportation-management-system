@@ -25,8 +25,6 @@ namespace TMS_DesktopApp
         {
             //testing something
             InitializeComponent();
-
-            MySqlConnection db = new DataAccess().ConnectMarketDB();
         }
     }
 }
