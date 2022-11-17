@@ -13,8 +13,7 @@ namespace TMS_DesktopApp
 {
     internal class DataAccess
     {
-        MySqlConnection connectionTmsDB = null;
-
+        MySqlConnection connection = null;
         /*
          * Function: ConnectTmsDB()
          * Description: This function establishes connection with database
@@ -30,11 +29,11 @@ namespace TMS_DesktopApp
         {
                 //connection string
                 string connStr = "Server=localhost;user=root;password=*****;Database=tms_db;";
-                connectionTmsDB = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+                connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
                 try
                 {
-                    //test connectionTmsDB
-                    connectionTmsDB.Open();
+                    //test connection
+                    connection.Open();
                 }
                 catch (Exception ex)
                 {
@@ -42,9 +41,10 @@ namespace TMS_DesktopApp
                 }
                 finally
                 {
-                    connectionTmsDB.Close();
+                    connection.Close();
                 }
-                return connectionTmsDB;
+                return connection;
+        }
         }
     }
 }
