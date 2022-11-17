@@ -23,7 +23,7 @@ namespace TMS_DesktopApp
          *            following likely to be changed: user, password, database
          * Params: NONE
          * Return: MySqlConnection connectionTmsDB, it returns instance of connection,
-         *          to interact with database you need to open() connection in your own code.
+         *          to interact with database you need to open() connection inside your own code.
          */
         public MySqlConnection ConnectTmsDB()
         {
@@ -47,14 +47,14 @@ namespace TMS_DesktopApp
         }
 
         /*
- * Function: ConnectMarketDB()
- * Description: This function establishes connection with Contract Market Place database
- *              For example, you can connect db as below:
- *                  MySqlConnection db = new DataAccess().ConnectMarketDB();
- * Params: NONE
- * Return: MySqlConnection connection, it returns instance of connection,
- *          to interact with database you need to open() connection in your own code.
- */
+         * Function: ConnectMarketDB()
+         * Description: This function establishes connection with Contract Market Place database
+         *              For example, you can connect db as below:
+         *                  MySqlConnection db = new DataAccess().ConnectMarketDB();
+         * Params: NONE
+         * Return: MySqlConnection connection, it returns instance of connection,
+         *          to interact with database you need to open() connection inside your own code.
+         */
         public MySqlConnection ConnectMarketDB()
         {
             //connection string
