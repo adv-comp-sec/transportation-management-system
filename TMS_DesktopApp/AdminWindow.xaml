@@ -1,4 +1,4 @@
-﻿<Window x:Class="TMS_DesktopApp.AdminWindow"
+﻿<Page x:Class="TMS_DesktopApp.AdminWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,9 +13,9 @@
             <Button Content="Edit log files"/>
             <Button Content="Start backup"/>
         </Menu>
-        <GroupBox Header="GroupBox" Margin="0,0,663,325"/>
+        <GroupBox Header="GroupBox" Margin="0,0,663,346"/>
         <Image HorizontalAlignment="Left" Height="63" Margin="10,25,0,0" VerticalAlignment="Top" Width="63"/>
-        <Frame x:Name="AdminContent" Content="Frame" Margin="154,55,10,41"/>
+        <Frame x:Name="AdminContent" Content="Frame" Margin="154,55,10,41" NavigationUIVisibility="Hidden"/>
 
     </Grid>
-</Window>
+</Page>

@@ -17,7 +17,7 @@ namespace TMS_DesktopApp
     /// <summary>
     /// Interaction logic for AdminWindow.xaml
     /// </summary>
-    public partial class AdminWindow : Window
+    public partial class AdminWindow : Page
     {
         public AdminWindow()
         {
