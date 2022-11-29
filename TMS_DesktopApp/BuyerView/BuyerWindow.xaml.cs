@@ -23,6 +23,7 @@ namespace TMS_DesktopApp
         public BuyerWindow()
         {
             InitializeComponent();
+            BuyerFrame.NavigationService.Navigate(new MarketPage());
         }
     }
 }

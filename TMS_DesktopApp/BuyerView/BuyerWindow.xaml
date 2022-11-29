@@ -9,6 +9,13 @@
       Title="BuyerWindow">
 
     <Grid>
-        
+        <Menu Margin="0,109,663,0">
+            <Button Content="Market Place" />
+            <Button Content="Orders"/>
+            <Button Content="Manage Customers"/>
+        </Menu>
+        <GroupBox Header="USER LOGO" Margin="0,0,663,346"/>
+        <Image HorizontalAlignment="Left" Height="63" Margin="10,25,0,0" VerticalAlignment="Top" Width="63"/>
+        <Frame x:Name="BuyerFrame" Content="" Margin="154,10,10,10" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>
