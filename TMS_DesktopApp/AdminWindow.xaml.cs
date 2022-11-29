@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,21 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TMS_DesktopApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AdminWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AdminWindow : Page
     {
-        public MainWindow()
+        public AdminWindow()
         {
-            //testing something
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new HomePage());
+        }
+
+        private void Button_Settings(object sender, RoutedEventArgs e)
+        {
+            AdminContent.Content = new AdminSettings();
         }
     }
 }

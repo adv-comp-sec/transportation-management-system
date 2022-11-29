@@ -24,5 +24,10 @@ namespace TMS_DesktopApp
         {
             InitializeComponent();
         }
+
+        private void btn_Login_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AdminWindow());
+        }
     }
 }
