@@ -17,5 +17,6 @@
         <Button x:Name="btn_Login" Content="Login" HorizontalAlignment="Center" Margin="0,253,0,0" VerticalAlignment="Top" Height="33" Width="200" Background="Black" Foreground="White" Click="btn_Login_Click"/>
         <Ellipse HorizontalAlignment="Center" Height="30" Margin="0,331,0,0" Stroke="Black" VerticalAlignment="Top" Width="30" Fill="Black" RenderTransformOrigin="0.447,0.255"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,376,0,0" TextWrapping="Wrap" Text="©Chocode Inc. All rights reserved" VerticalAlignment="Top"/>
+        <TextBlock x:Name="error_Msg" HorizontalAlignment="Center" Margin="0,298,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="18" Width="200" Foreground="Red"/>
     </Grid>
 </Page>
