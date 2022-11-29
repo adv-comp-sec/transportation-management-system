@@ -20,6 +20,10 @@ namespace TMS_DesktopApp
     /// </summary>
     public partial class HomePage : Page
     {
+        public string user;
+        public string admin = "admin";
+        public string buyer = "buyer";
+        public string planner = "planner";
         public HomePage()
         {
             InitializeComponent();
@@ -27,7 +31,24 @@ namespace TMS_DesktopApp
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new BuyerWindow());
+            user = txt_Username.Text;
+
+            if (user == admin)
+            {
+                this.NavigationService.Navigate(new AdminWindow());
+            }
+            else if (user == buyer)
+            {
+                this.NavigationService.Navigate(new BuyerWindow());
+            }
+            else if (user == planner)
+            {
+                //this.NavigationService.Navigate(new PlannerWindow());
+            }
+            else
+            {
+                error_Msg.Text = "Wrong credentials.";
+            }
         }
     }
 }
