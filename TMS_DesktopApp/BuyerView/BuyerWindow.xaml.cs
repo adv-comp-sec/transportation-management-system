@@ -14,20 +14,15 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TMS_DesktopApp
-{
+{ 
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for BuyerWindow.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class BuyerWindow : Page
     {
-        public HomePage()
+        public BuyerWindow()
         {
             InitializeComponent();
-        }
-
-        private void btn_Login_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new BuyerWindow());
         }
     }
 }
