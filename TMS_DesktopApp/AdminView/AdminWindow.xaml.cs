@@ -27,6 +27,8 @@ namespace TMS_DesktopApp
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
             AdminContent.Content = new AdminSettings();
+
+ 
         }
     }
 }
