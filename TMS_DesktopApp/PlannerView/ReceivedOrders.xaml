@@ -1,0 +1,33 @@
+﻿<Page x:Class="TMS_DesktopApp.PlannerView.ReceivedOrders"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TMS_DesktopApp.PlannerView"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="400"
+      Title="ReceivedOrders">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="448.093" />
+            <RowDefinition Height="0*" />
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Column="0" x:Name="carriersTable" Margin="10,10,10,298" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Carriers" Binding="{Binding CarriersAvailabilityFlag}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Column="1" x:Name="receivedOrders"  Margin="22,12,22,368">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="Orders" Binding="{Binding AddTrip}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+
+    </Grid>
+</Page>

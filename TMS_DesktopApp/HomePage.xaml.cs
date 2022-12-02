@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TMS_DesktopApp.PlannerView;
 
 namespace TMS_DesktopApp
 {
@@ -43,7 +44,7 @@ namespace TMS_DesktopApp
             }
             else if (user == planner)
             {
-                //this.NavigationService.Navigate(new PlannerWindow());
+                this.NavigationService.Navigate(new PlannerWindow());
             }
             else
             {

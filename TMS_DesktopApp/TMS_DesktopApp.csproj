@@ -141,8 +141,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PlannerView\PlannerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlannerView\ReceivedOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlannerView\PlannerWindow.xaml.cs">
+      <DependentUpon>PlannerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlannerView\ReceivedOrders.xaml.cs">
+      <DependentUpon>ReceivedOrders.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
