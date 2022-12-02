@@ -23,9 +23,15 @@ namespace TMS_DesktopApp.PlannerView
     public partial class ReceivedOrders : Page
     {
         bool CarriersAvailabilityFlag = false;
-        bool AddTrip = false;
+        bool SelectOrder = false;
         MySqlDataAdapter da;
         DataSet ds = new DataSet();
+
+        MySqlDataAdapter daOrders;
+        DataSet dsOrders = new DataSet();
+
+        bool city_toronto = false;
+        bool city_ottawa = false;
 
         public ReceivedOrders()
         {
@@ -50,24 +56,40 @@ namespace TMS_DesktopApp.PlannerView
 
         public void PopulateOrdersTable()
         {
-            DataSet dsOrders = new DataSet();
             MySqlConnection conn = new MySqlConnection("Server=127.0.0.1;Port=3306;user=root;password=DP01/11engRD;Database=TMS_DB;");
             string cmd = "SELECT * FROM orders;";
-            MySqlDataAdapter daOrders;
             daOrders = new MySqlDataAdapter(cmd, conn);
             MySqlCommandBuilder cb = new MySqlCommandBuilder(da);
             daOrders.Fill(dsOrders);
-
             receivedOrders.ItemsSource = dsOrders.Tables[0].AsDataView();
-
         }
 
         private void AddTrip_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (city_toronto == true)
+            {
 
+            }
+            else if (city_ottawa == true)
+            {
 
+            }
+        }
 
+        private void Toronto_Checked(object sender, RoutedEventArgs e)
+        {
+            if (City_Toronto.IsChecked.Value)
+            {
+                city_toronto = true;
+            }
+        }
+
+        private void Ottawa_Checked(object sender, RoutedEventArgs e)
+        {
+            if (City_Ottawa.IsChecked.Value)
+            {
+                city_ottawa = true;
+            }
         }
     }
 }
