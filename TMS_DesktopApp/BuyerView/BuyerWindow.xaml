@@ -5,17 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TMS_DesktopApp"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="BuyerWindow">
 
     <Grid>
-        <Menu Margin="0,109,663,0">
-            <Button Content="Market Place" />
-            <Button Content="Orders"/>
-            <Button Content="Manage Customers"/>
-        </Menu>
-        <GroupBox Header="USER LOGO" Margin="0,0,663,346"/>
-        <Image HorizontalAlignment="Left" Height="63" Margin="10,25,0,0" VerticalAlignment="Top" Width="63"/>
-        <Frame x:Name="BuyerFrame" Content="" Margin="154,10,10,10" NavigationUIVisibility="Hidden"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="20 50 20 20">
+            <Button Content="Market Place" Height="50" Margin="0,0,0,10" />
+            <Button Content="Orders" Height="50" Margin="0,0,0,10"/>
+            <Button Content="Manage Customers" Height="50" Margin="0,0,0,10"/>
+            <Button Content="Logout" Height="50" Margin="0,0,0,10"/>
+         </StackPanel>
+       
+         <Frame Grid.Column="1" x:Name="BuyerFrame" Content=""  NavigationUIVisibility="Hidden"/>
+     
+          
     </Grid>
 </Page>
