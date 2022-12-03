@@ -5,18 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TMS_DesktopApp"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="HomePage">
 
     <Grid>
-        <Label x:Name="lbl_ApplicationTitle" Content="TMS APPLICATION TITLE" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
-        <Label x:Name="lbl_ApplicationSubtitle" Content="Ready to get started?" HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." VerticalAlignment="Top" Width="236" RenderTransformOrigin="0.606,0.5" Margin="0,93,0,0" TextAlignment="Center"/>
-        <TextBox x:Name="txt_Username" HorizontalAlignment="Center" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top" Width="200" Height="35" FontSize="16" VerticalContentAlignment="Center" UseLayoutRounding="False" Padding="10,0,0,0" Margin="0,156,0,0"/>
-        <TextBox x:Name="txt_Password" HorizontalAlignment="Center" TextWrapping="Wrap" Text="password" VerticalAlignment="Center" Width="200" Height="35" FontSize="16" VerticalContentAlignment="Center" Padding="10,0,0,0"/>
-        <Button x:Name="btn_Login" Content="Login" HorizontalAlignment="Center" Margin="0,253,0,0" VerticalAlignment="Top" Height="33" Width="200" Background="Black" Foreground="White" Click="btn_Login_Click"/>
-        <Ellipse HorizontalAlignment="Center" Height="30" Margin="0,331,0,0" Stroke="Black" VerticalAlignment="Top" Width="30" Fill="Black" RenderTransformOrigin="0.447,0.255"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,376,0,0" TextWrapping="Wrap" Text="©Chocode Inc. All rights reserved" VerticalAlignment="Top"/>
-        <TextBlock x:Name="error_Msg" HorizontalAlignment="Center" Margin="0,298,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="18" Width="200" Foreground="Red"/>
+        <Label x:Name="lbl_ApplicationTitle" Content="TMS APPLICATION TITLE" HorizontalAlignment="Left" Margin="390,46,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Label x:Name="lbl_ApplicationSubtitle" Content="Ready to get started?" HorizontalAlignment="Left" Margin="500,122,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." VerticalAlignment="Top" Width="236" RenderTransformOrigin="0.606,0.5" Margin="487,182,0,0" TextAlignment="Center" FontSize="16"/>
+        <TextBox x:Name="txt_Username" HorizontalAlignment="Left" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top" Width="200" Height="35" FontSize="16" VerticalContentAlignment="Center"  Padding="10,0,0,0" Margin="510,298,0,0" />
+        <TextBox x:Name="txt_Password" HorizontalAlignment="Left" TextWrapping="Wrap" Text="password" VerticalAlignment="Top" Width="200" Height="34" FontSize="16" VerticalContentAlignment="Center" Padding="10,0,0,0" Margin="510,352,0,0"/>
+        <Button x:Name="btn_Login" Content="Login" HorizontalAlignment="Left" Margin="510,422,0,0" VerticalAlignment="Top" Height="34" Width="200" Background="Black" Foreground="White" Click="btn_Login_Click"/>
+        <Ellipse HorizontalAlignment="Left" Height="28" Margin="600,590,0,0" Stroke="Black" VerticalAlignment="Top" Width="30" Fill="Black" RenderTransformOrigin="0.447,0.255"/>
+        <TextBlock HorizontalAlignment="Left" Margin="526,556,0,0" TextWrapping="Wrap" Text="©Chocode Inc. All rights reserved" VerticalAlignment="Top"/>
+        <TextBlock x:Name="error_Msg" HorizontalAlignment="Left" Margin="515,298,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="18" Width="200" Foreground="Red"/>
     </Grid>
 </Page>

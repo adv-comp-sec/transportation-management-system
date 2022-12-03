@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -27,8 +28,9 @@ namespace TMS_DesktopApp
          */
         public MySqlConnection ConnectTmsDB()
         {
+
                 //connection string
-                string connStr = "Server=localhost;user=root;password=*****;Database=tms_db;";
+                string connStr = ConfigurationManager.AppSettings["tms_db_connection_string"];
                 connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
                 try
                 {

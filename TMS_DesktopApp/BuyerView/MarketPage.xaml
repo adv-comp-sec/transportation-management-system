@@ -9,14 +9,45 @@
       Title="MarketPage">
 
     <Grid>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="141,290,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="141,265,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="141,314,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="marketDBTable" Margin="10,10,10,225" >
-            <DataGrid.Columns>
-                <DataGridCheckBoxColumn Header="Online Order?" IsThreeState="True" Binding="{Binding OnlineOrderFlag}" />
-            </DataGrid.Columns>
-        </DataGrid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height=".1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <TextBlock Text="Contract Market Place" FontSize="24" HorizontalAlignment="Center"/>
+            <DataGrid  x:Name="marketDBTable"  CanUserAddRows="false" AutoGenerateColumns="false" SelectedCellsChanged="marketDBTable_SelectedCellsChanged" Margin="20,46,20,16"  >
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="16" Width="*" Header="Client Name"  Binding="{Binding Client_Name}"/>
+                    <DataGridTextColumn FontSize="16" Width="*" Header="Job Type"  Binding="{Binding Job_Type}"/>
+                    <DataGridTextColumn FontSize="16" Width="*" Header="Quantity"  Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn FontSize="16" Width="*" Header="Origin"  Binding="{Binding Origin}"/>
+                    <DataGridTextColumn FontSize="16" Width="*" Header="Destination"  Binding="{Binding Destination}"/>
+                    <DataGridTextColumn IsReadOnly="False" FontSize="16" Width="*" Header="Van Type"  Binding="{Binding Van_Type}"/>
+                 </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <TextBlock Grid.Row="1" Text="Select Relevant Cities"  FontSize="16" Margin="20,0,0,0" />
+        
+        <Grid Grid.Row="2" Margin="20,0,20,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel >
+                <CheckBox Content="Windsor" FontSize="16" />
+                <CheckBox Content="London" FontSize="16" />
+                <CheckBox Content="Hamilton" FontSize="16" />
+                <CheckBox Content="Toronto" FontSize="16" />
+                <CheckBox Content="Oshawa" FontSize="16" />
+                <CheckBox Content="Belleville" FontSize="16" />
+                <CheckBox Content="Kingston" FontSize="16" />
+                <CheckBox Content="Ottawa" FontSize="16" />
+            </StackPanel>
+            <Button x:Name="btn_CreateOrder" Grid.Column="3" Content="Create Order" HorizontalAlignment="Right"  VerticalAlignment="Bottom"  Height="37" Width="89" Margin="0,0,20,0" Click="btn_CreateOrder_Click" />
+            <Button x:Name="btn_Refresh" Grid.Column="3" Content="Refresh " HorizontalAlignment="Left"  VerticalAlignment="Bottom"  Height="37" Width="63" Click="btn_Refresh_Click"   />
+        </Grid>
     </Grid>
 </Page>
