@@ -25,7 +25,7 @@ namespace TMS_DesktopApp
         {
             //testing something
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new BuyerWindow());
+            MainFrame.NavigationService.Navigate(new HomePage());
         }
     }
 }
