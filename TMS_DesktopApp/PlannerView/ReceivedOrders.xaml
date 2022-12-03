@@ -5,31 +5,55 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TMS_DesktopApp.PlannerView"
       mc:Ignorable="d" 
-      d:DesignHeight="350" d:DesignWidth="400"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="ReceivedOrders">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="188" />
-            <RowDefinition Height="62" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <DataGrid Grid.Column="0" x:Name="carriersTable" Margin="10,10,10,25" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Carriers" Binding="{Binding CarriersAvailabilityFlag}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <DataGrid Grid.Column="1" x:Name="receivedOrders"  Margin="22,12,22,121">
-            <DataGrid.Columns>
-                <DataGridCheckBoxColumn x:Name="Select" Header="Orders" Binding="{Binding SelectOrder}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <RadioButton x:Name="City_Toronto" Grid.Column="1" Grid.Row="1" Content="Toronto" HorizontalAlignment="Left" Margin="100,16,0,0" VerticalAlignment="Top" Checked="Toronto_Checked" Height="16" Width="60"/>
-        <RadioButton x:Name="City_Ottawa" Grid.Column="1" Grid.Row="1" Content="Ottawa" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Checked="Ottawa_Checked" Height="15" Width="57" />
-
-
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid CanUserAddRows="false"  AutoGenerateColumns="false" Grid.Column="0" x:Name="carriersTable" Margin="20,20,20,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Carriers" Binding="{Binding cName}" />
+                    <DataGridTextColumn Header="Depot City" Binding="{Binding dCity}" />
+                    <DataGridTextColumn Header="FTLA" Binding="{Binding FTLA}" />
+                    <DataGridTextColumn Header="LTLA" Binding="{Binding LTLA}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Grid.Column="1" x:Name="receivedOrders"  Margin="20,20,20,0">
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,0,20,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="2" HorizontalAlignment="Right" x:Name="btn_Add" Content="Add"   Height="37" Width="56" Margin="20,2,0,2"  />
+            <Button Grid.Column="2" HorizontalAlignment="Left" x:Name="btn_Refresh" Content="Refresh"  Height="37" Width="63" Margin="20,0,0,0" Click="btn_Refresh_Click"/>
+            <Button Grid.Column="2" x:Name="btn_Details" Content="Details"  Height="37" Width="63" Margin="30,0,0,0"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <DataGrid x:Name="tripsTable"  Height="200" VerticalAlignment="Top" Margin="20,0,20,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="OderId" Width="*"  />
+                    <DataGridTextColumn Header="Order Origin" Width="*" />
+                    <DataGridTextColumn Header="Order Dest" Width="*" />
+                    <DataGridTextColumn Header="Trip Origin" Width="*"  />
+                    <DataGridTextColumn Header="Trip Dest" Width="*" />
+                    <DataGridTextColumn Header="LTLA" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btn_ConfirmTrips" Content="Confirm Trips" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="37" Width="81" Margin="0,0,20,20"/>
+        </Grid>
+        
     </Grid>
 </Page>

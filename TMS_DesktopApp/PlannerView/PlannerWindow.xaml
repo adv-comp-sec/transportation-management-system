@@ -7,16 +7,20 @@
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1200"
       Title="PlannerWindow">
-
     <Grid>
-        <Menu Margin="0,186,992,3">
-            <Button Content="Received Orders" />
-            <Button Content="Confirmed Orders"/>
-            <Button Content="Completed Orders"/>
-        </Menu>
-        <GroupBox Header="USER LOGO" Margin="0,0,992,614"/>
-        <Image HorizontalAlignment="Left" Height="113" Margin="15,45,0,0" VerticalAlignment="Top" Width="96"/>
-        <Frame x:Name="PlannerFrame" Content="" Margin="224,20,10,10" NavigationUIVisibility="Hidden"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="20 50 20 20">
+            <Button Content="Received Orders" Height="50" Margin="0,0,0,10" />
+            <Button Content="Confirmed Orders" Height="50" Margin="0,0,0,10"/>
+            <Button Content="Completed Orders" Height="50" Margin="0,0,0,10"/>
+            <Button Content="Logout" Height="50" Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <Frame Grid.Column="1" x:Name="PlannerFrame" Content=""  NavigationUIVisibility="Hidden"/>
+
 
     </Grid>
 </Page>

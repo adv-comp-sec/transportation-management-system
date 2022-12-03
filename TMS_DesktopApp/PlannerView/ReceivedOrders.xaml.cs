@@ -22,74 +22,45 @@ namespace TMS_DesktopApp.PlannerView
     /// </summary>
     public partial class ReceivedOrders : Page
     {
-        bool CarriersAvailabilityFlag = false;
-        bool SelectOrder = false;
-        MySqlDataAdapter da;
-        DataSet ds = new DataSet();
-
-        MySqlDataAdapter daOrders;
+        DataSet dsCarriers = new DataSet();
         DataSet dsOrders = new DataSet();
-
-        bool city_toronto = false;
-        bool city_ottawa = false;
+        DataTable dsTrips = new DataTable() { };
 
         public ReceivedOrders()
         {
             InitializeComponent();
             PopulateCarriersTable();
             PopulateOrdersTable();
+            tripsTable.ItemsSource = dsTrips.AsDataView();
         }
 
         public void PopulateCarriersTable()
         {
-            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1;Port=3306;user=root;password=DP01/11engRD;Database=TMS_DB;");
+            MySqlConnection conn = new DataAccess().ConnectTmsDB();
             string cmd = "SELECT cName, dCity, FTLA, LTLA FROM carriers;";
-            da = new MySqlDataAdapter(cmd, conn);
-            MySqlCommandBuilder cb = new MySqlCommandBuilder(da);
-            da.Fill(ds);
-            //GET THE DATA
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd, conn);
 
-            carriersTable.ItemsSource = ds.Tables[0].AsDataView();
-            //marketDBTable.ItemsSource = ds.DefaultViewManager;
-
+            da.Fill(dsCarriers);
+            carriersTable.ItemsSource = dsCarriers.Tables[0].AsDataView();
         }
-
+        private void btn_Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            dsOrders.Clear();
+            PopulateOrdersTable();
+        }
         public void PopulateOrdersTable()
         {
-            MySqlConnection conn = new MySqlConnection("Server=127.0.0.1;Port=3306;user=root;password=DP01/11engRD;Database=TMS_DB;");
+            MySqlConnection conn = new DataAccess().ConnectTmsDB();
             string cmd = "SELECT * FROM orders;";
-            daOrders = new MySqlDataAdapter(cmd, conn);
-            MySqlCommandBuilder cb = new MySqlCommandBuilder(da);
+            MySqlDataAdapter daOrders = new MySqlDataAdapter(cmd, conn);
+
             daOrders.Fill(dsOrders);
             receivedOrders.ItemsSource = dsOrders.Tables[0].AsDataView();
         }
 
         private void AddTrip_Click(object sender, RoutedEventArgs e)
         {
-            if (city_toronto == true)
-            {
-
-            }
-            else if (city_ottawa == true)
-            {
-
-            }
         }
 
-        private void Toronto_Checked(object sender, RoutedEventArgs e)
-        {
-            if (City_Toronto.IsChecked.Value)
-            {
-                city_toronto = true;
-            }
-        }
-
-        private void Ottawa_Checked(object sender, RoutedEventArgs e)
-        {
-            if (City_Ottawa.IsChecked.Value)
-            {
-                city_ottawa = true;
-            }
-        }
     }
 }

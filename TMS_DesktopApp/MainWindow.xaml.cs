@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TMS_DesktopApp.PlannerView;
 
 namespace TMS_DesktopApp
 {
@@ -25,7 +26,7 @@ namespace TMS_DesktopApp
         {
             //testing something
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new BuyerWindow());
+            MainFrame.NavigationService.Navigate(new PlannerWindow());
         }
     }
 }
