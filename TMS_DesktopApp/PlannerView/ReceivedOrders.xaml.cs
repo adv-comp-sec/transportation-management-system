@@ -31,6 +31,7 @@ namespace TMS_DesktopApp.PlannerView
             InitializeComponent();
             PopulateCarriersTable();
             PopulateOrdersTable();
+            dsTrips = CreateTripsTable();
             tripsTable.ItemsSource = dsTrips.AsDataView();
         }
 
@@ -53,14 +54,55 @@ namespace TMS_DesktopApp.PlannerView
             MySqlConnection conn = new DataAccess().ConnectTmsDB();
             string cmd = "SELECT * FROM orders;";
             MySqlDataAdapter daOrders = new MySqlDataAdapter(cmd, conn);
-
             daOrders.Fill(dsOrders);
             receivedOrders.ItemsSource = dsOrders.Tables[0].AsDataView();
         }
 
-        private void AddTrip_Click(object sender, RoutedEventArgs e)
+        private void btn_Add_Click(object sender, RoutedEventArgs e)
         {
+            int index = receivedOrders.SelectedIndex;
+            var order = dsOrders.Tables[0].Rows[index].ItemArray;
+            dsTrips.Rows.Add(new Object[] { order[0], order[6], order[7], order[9] });
+            btn_Add.IsEnabled = false;
+            btn_Remove.IsEnabled = true;
+        }
+        private void btn_Remove_Click(object sender, RoutedEventArgs e)
+        {
+            dsTrips.Rows[0].Delete();
+            btn_Add.IsEnabled = true;
+            btn_Remove.IsEnabled = false;
+        }
+        private DataTable CreateTripsTable()
+        {
+            DataTable tripsTable = new DataTable("Trips");
+            // Define all the columns once.
+            DataColumn[] cols =
+            {
+                new DataColumn("OrderID", typeof(int)),
+                new DataColumn("Origin", typeof(String)),
+                new DataColumn("Destination", typeof(String)),
+                new DataColumn("Job_Type", typeof(String)),
+                new DataColumn("Distance", typeof(int)),
+                new DataColumn("Hours", typeof(int)),
+                new DataColumn("Days", typeof(int)),
+                new DataColumn("Price", typeof(int)),
+                new DataColumn("Carrier", typeof(String)),
+            };
+            tripsTable.Columns.AddRange(cols);
+  
+            return tripsTable;
         }
 
+        private void btn_Calculate_Click(object sender, RoutedEventArgs e)
+        {
+            //check if carrier is entered, if not show a message box
+
+            //calculate trip hours
+
+            //calculate amount of day
+
+            //calculate price
+        }
     }
+
 }

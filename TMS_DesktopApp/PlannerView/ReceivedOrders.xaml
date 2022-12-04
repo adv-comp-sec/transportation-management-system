@@ -37,23 +37,28 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="2" HorizontalAlignment="Right" x:Name="btn_Add" Content="Add"   Height="37" Width="56" Margin="20,2,0,2"  />
+            <Button Grid.Column="2" HorizontalAlignment="Right" x:Name="btn_Add" Content="Add"   Height="37" Width="56" Margin="20,2,0,2" Click="btn_Add_Click"  />
             <Button Grid.Column="2" HorizontalAlignment="Left" x:Name="btn_Refresh" Content="Refresh"  Height="37" Width="63" Margin="20,0,0,0" Click="btn_Refresh_Click"/>
             <Button Grid.Column="2" x:Name="btn_Details" Content="Details"  Height="37" Width="63" Margin="30,0,0,0"/>
         </Grid>
         <Grid Grid.Row="2">
-            <DataGrid x:Name="tripsTable"  Height="200" VerticalAlignment="Top" Margin="20,0,20,0">
+            <DataGrid x:Name="tripsTable" AutoGenerateColumns="false" CanUserAddRows="False"  Height="100" VerticalAlignment="Top" Margin="20,0,20,0" MinWidth="4">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="OderId" Width="*"  />
-                    <DataGridTextColumn Header="Order Origin" Width="*" />
-                    <DataGridTextColumn Header="Order Dest" Width="*" />
-                    <DataGridTextColumn Header="Trip Origin" Width="*"  />
-                    <DataGridTextColumn Header="Trip Dest" Width="*" />
-                    <DataGridTextColumn Header="LTLA" Width="*" />
+                    <DataGridTextColumn Header="OrderId" Width="*" IsReadOnly="True"  Binding="{Binding OrderID}" />
+                    <DataGridTextColumn Header="Origin" Width="*" IsReadOnly="True" Binding="{Binding Origin}" />
+                    <DataGridTextColumn Header="Destination" Width="*" IsReadOnly="True" Binding="{Binding Destination}" />
+                    <DataGridTextColumn Header="Job Type" Width="*" IsReadOnly="True"  Binding="{Binding Job_Type}"  />
+                    <DataGridTextColumn Header="Distance" Width="*" IsReadOnly="True" Binding="{Binding Distance}" />
+                    <DataGridTextColumn Header="Hours" Width="*" IsReadOnly="True" Binding="{Binding Hours}" />
+                    <DataGridTextColumn Header="Days" Width="*" IsReadOnly="True" Binding="{Binding Days}"/>
+                    <DataGridTextColumn Header="Price" Width="*" IsReadOnly="True" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Carrier" Width="*" Binding="{Binding Carrier}"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <Button x:Name="btn_Calculate" Content="Calculate Trip Details" HorizontalAlignment="Left"  Height="37" Width="128" Margin="20,0,0,0" />
+            <Button x:Name="btn_Remove" Content="Remove" HorizontalAlignment="Right"  Height="37" Width="128" Margin="0,0,20,0" Click="btn_Remove_Click" />
             <Button x:Name="btn_ConfirmTrips" Content="Confirm Trips" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="37" Width="81" Margin="0,0,20,20"/>
         </Grid>
-        
+
     </Grid>
 </Page>
