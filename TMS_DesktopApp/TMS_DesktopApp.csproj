@@ -197,8 +197,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DatabaseTablesSQL\" />
+    <Content Include="DatabaseTablesSQL\carriers.sql" />
+    <Content Include="DatabaseTablesSQL\orders.sql" />
+    <Content Include="DatabaseTablesSQL\routes.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
