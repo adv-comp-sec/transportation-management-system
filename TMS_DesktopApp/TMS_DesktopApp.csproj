@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="AdminView\ManageDB.xaml.cs">
       <DependentUpon>ManageDB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuyerView\BuyerOrders.xaml.cs">
       <DependentUpon>BuyerOrders.xaml</DependentUpon>
     </Compile>
@@ -132,7 +133,9 @@
     <Compile Include="BuyerView\BuyerWindow.xaml.cs">
       <DependentUpon>BuyerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BuyerView\MarketContracts.cs" />
+    <Compile Include="BuyerView\MarketContracts.cs">
+      <DependentUpon>MarketContracts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuyerView\MarketPage.xaml.cs">
       <DependentUpon>MarketPage.xaml</DependentUpon>
     </Compile>
