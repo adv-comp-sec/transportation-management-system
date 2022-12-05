@@ -150,11 +150,11 @@ namespace TMS_DesktopApp.BuyerView
                 quantity = Convert.ToInt32(selectedOrder[10].ToString());   // get pallets quantity for LTL
             }
 
-            cost = Convert.ToDecimal(selectedOrder[10].ToString());         // get cost from order
+            cost = Convert.ToDecimal(selectedOrder[11].ToString());         // get cost from order
 
             subtotal = cost.ToString();
 
-            total = (cost * taxRate / 100) + cost;      // add tax rate to the subtotal
+            total = (cost * taxRate) + cost;      // add tax rate to the subtotal
 
 
             DownloadInvoice_Click();//create file
@@ -188,7 +188,7 @@ namespace TMS_DesktopApp.BuyerView
                 invoiceFile.WriteLine("Cost: $" + cost.ToString() + "\n"
                     + "-----------------------------------------------\n\n"
                     + "Subtotal: " + subtotal + "\n"
-                    + "HST: " + taxRate.ToString() + "\n"
+                    + "HST: " + (taxRate*100).ToString() + "%\n"
                     + "Total: " + total.ToString() + "\n"
                     );
             }
