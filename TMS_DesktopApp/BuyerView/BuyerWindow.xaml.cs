@@ -25,5 +25,23 @@ namespace TMS_DesktopApp
             InitializeComponent();
             BuyerFrame.NavigationService.Navigate(new MarketPage());
         }
+
+        private void LogOut_Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            this.NavigationService.Navigate(new HomePage());
+
+            //this.NavigationService.GoBack();
+        }
+
+        private void Orders_Button_Click(object sender, RoutedEventArgs e)
+        {
+            BuyerFrame.NavigationService.Navigate(new BuyerView.BuyerOrders());
+        }
+
+        private void MarketPage_Button_Click(object sender, RoutedEventArgs e)
+        {
+            BuyerFrame.NavigationService.Navigate(new MarketPage());
+        }
     }
 }
