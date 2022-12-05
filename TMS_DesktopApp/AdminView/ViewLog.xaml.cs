@@ -17,7 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static TMS_DesktopApp.AdminSettings;
 
-namespace TMS_DesktopApp.AdminView
+namespace TMS_DesktopApp
 {
     /// <summary>
     /// Interaction logic for ViewLog.xaml
