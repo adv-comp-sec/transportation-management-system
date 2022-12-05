@@ -60,7 +60,31 @@ namespace TMS_DesktopApp
         public MySqlConnection ConnectMarketDB()
         {
             //connection string
-            string connStr = "Server=159.89.117.198;Port=3306;user=DevOSHT;password=Snodgr4ss!;Database=cmp;";
+            string connStr = "Server=159.89.117.198;Port=3306;userid=DevOSHT;password=Snodgr4ss!;Database=cmp;";
+            connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
+            try
+            {
+                //test connection
+                connection.Open();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return connection;
+        }
+
+
+
+
+        public MySqlConnection Connect_TMS_DB()
+        {
+            //connection string
+            string connStr = "Server=localhost;Port=3306;userid=root;password=Dbwls12!;Database=rdb;";
             connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             try
             {

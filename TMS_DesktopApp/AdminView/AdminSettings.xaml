@@ -5,25 +5,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TMS_DesktopApp"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1200"
       Title="AdminPage">
-    <Grid>
+    <Grid Margin="202,33,10,38">
+        
         <Label x:Name="lbl_SettingsTitle" Content="Settings" HorizontalAlignment="Left" Margin="64,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Regular"/>
         <Label x:Name="lbl_ModeSubtitle" Content="admin mode" HorizontalAlignment="Left" Margin="64,57,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular"/>
         <Label x:Name="lbl_DBMSConnection" Content="DBMS Communications" HorizontalAlignment="Left" Margin="64,101,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Set information to connect to the database" VerticalAlignment="Top" Width="320" RenderTransformOrigin="0.606,0.5" Margin="97,137,0,0" TextAlignment="Left" FontSize="16"/>
         <TextBox x:Name="txt_IPAddress" HorizontalAlignment="Left" TextWrapping="Wrap" Text="IP address" VerticalAlignment="Top" Width="200" Height="35" FontSize="16" VerticalContentAlignment="Center" UseLayoutRounding="False" Padding="10,0,0,0" Margin="200,170,0,0" />
         <TextBox x:Name="txt_Port" HorizontalAlignment="Left" TextWrapping="Wrap" Text="port" VerticalAlignment="Top" Width="200" Height="35" FontSize="16" VerticalContentAlignment="Center" Padding="10,0,0,0" Margin="200,211,0,0"/>
-        <Button x:Name="btn_ConnectDBMS" Content="Connect" HorizontalAlignment="Left" Margin="437,211,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White"/>
+        <Button x:Name="btn_ConnectDBMS" Content="Connect" HorizontalAlignment="Left" Margin="437,211,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White" Click="btn_ConnectDBMS_Click"/>
         <Label x:Name="lbl_Logfiles" Content="Logfiles" HorizontalAlignment="Left" Margin="64,281,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Select directory for log files" VerticalAlignment="Top" Width="320" RenderTransformOrigin="0.606,0.5" Margin="97,317,0,0" TextAlignment="Left" FontSize="16"/>
         <Label x:Name="lbl_IPAddress" Content="IP Address" HorizontalAlignment="Left" Margin="64,170,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular" Height="35"/>
         <Label x:Name="lbl_Port" Content="Port" HorizontalAlignment="Left" Margin="64,211,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular" Height="35"/>
         <TextBox x:Name="txt_Directory_Path" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Directory" VerticalAlignment="Top" Width="200" Height="35" FontSize="16" VerticalContentAlignment="Center" UseLayoutRounding="False" Padding="10,0,0,0" Margin="200,356,0,0"/>
         <Label x:Name="lbl_Directory" Content="Directory path" HorizontalAlignment="Left" Margin="64,356,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular" Height="35"/>
-        <Button x:Name="btn_SaveDirectory" Content="Save directory" HorizontalAlignment="Left" Margin="437,356,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White"/>
+        <Button x:Name="btn_SaveDirectory" Content="Save directory" HorizontalAlignment="Left" Margin="437,356,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White" />
         <Label x:Name="lbl_Browse" Content="Browse from folder" HorizontalAlignment="Left" Margin="64,405,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular" Height="35" RenderTransformOrigin="0.473,2.729"/>
         <Button x:Name="btn_BrowseDirectory" Content="Browse directory" HorizontalAlignment="Left" Margin="234,406,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White" />
+        <Label x:Name="IPPortErrorMsg" HorizontalAlignment="Left" Margin="437,165,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular" Height="35" Width="340" Foreground="red"/>
+
 
     </Grid>
 </Page>

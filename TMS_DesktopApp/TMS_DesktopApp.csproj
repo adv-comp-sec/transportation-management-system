@@ -120,6 +120,8 @@
     <Compile Include="AdminView\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminView\ManageDB.xaml.cs">
+      <DependentUpon>ManageDB.xaml</DependentUpon>
     <Compile Include="BuyerView\BuyerOrders.xaml.cs">
       <DependentUpon>BuyerOrders.xaml</DependentUpon>
     </Compile>
@@ -138,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminView\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminView\ManageDB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TMS_DesktopApp"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="800" Width="1200">
     <Grid>
-        <Menu Margin="0,109,663,0">
-            <Button Content="Settings" Click="Button_Settings"/>
-            <Button Content="Manage database"/>
-            <Button Content="Edit log files"/>
-            <Button Content="Start backup"/>
-        </Menu>
-        <GroupBox Header="GroupBox" Margin="0,0,663,346"/>
+        <StackPanel Margin="20,145,1046,20">
+            <Button Name ="settingsBtn" Content="Settings" Height="50" Margin="0,0,0,10" Click="settingsBtn_Click" />
+            <Button x:Name ="manageDBBtn" Content="Manage Database" Height="50"  Margin="0,0,0,10" Click="manageDBBtn_Click"/>
+            <Button Name ="logBtn" Content="View log files" Height="50" Margin="0,0,0,10" Click="logBtn_Click"/>
+            <Button Name ="backupBtn" Content="Start Backup" Height="50" Margin="0,0,0,10"/>
+        </StackPanel>
+  
+    
         <Image HorizontalAlignment="Left" Height="63" Margin="10,25,0,0" VerticalAlignment="Top" Width="63"/>
-        <Frame x:Name="AdminContent" Content="Frame" Margin="154,55,10,41" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="AdminContent" Margin="154,55,10,41" NavigationUIVisibility="Hidden" />
 
     </Grid>
 </Page>
