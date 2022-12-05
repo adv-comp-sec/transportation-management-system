@@ -24,9 +24,15 @@ namespace TMS_DesktopApp
             InitializeComponent();
         }
 
-        private void Button_Settings(object sender, RoutedEventArgs e)
+
+        private void settingsBtn_Click(object sender, RoutedEventArgs e)
         {
             AdminContent.Content = new AdminSettings();
+        }
+
+        private void manageDBBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AdminContent.Content = new ManageDB();
         }
     }
 }
