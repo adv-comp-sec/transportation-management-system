@@ -84,7 +84,7 @@ namespace TMS_DesktopApp
         public MySqlConnection Connect_TMS_DB()
         {
             //connection string
-            string connStr = "Server=localhost;Port=3306;userid=root;password=Dbwls12!;Database=rdb;";
+            string connStr = "Server=localhost;Port=3306;userid=root;password=root;Database=tms_db;";
             connection = new MySql.Data.MySqlClient.MySqlConnection(connStr);
             try
             {

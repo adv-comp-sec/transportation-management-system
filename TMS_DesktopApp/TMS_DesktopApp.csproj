@@ -93,6 +93,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -122,13 +123,19 @@
     </Compile>
     <Compile Include="AdminView\ManageDB.xaml.cs">
       <DependentUpon>ManageDB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuyerView\BuyerOrders.xaml.cs">
       <DependentUpon>BuyerOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminView\ViewLog.xaml.cs">
+      <DependentUpon>ViewLog.xaml</DependentUpon>
     </Compile>
     <Compile Include="BuyerView\BuyerWindow.xaml.cs">
       <DependentUpon>BuyerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BuyerView\MarketContracts.cs" />
+    <Compile Include="BuyerView\MarketContracts.cs">
+      <DependentUpon>MarketContracts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuyerView\MarketPage.xaml.cs">
       <DependentUpon>MarketPage.xaml</DependentUpon>
     </Compile>
@@ -146,6 +153,10 @@
     <Page Include="AdminView\ManageDB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminView\ViewLog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="BuyerView\BuyerOrders.xaml">
       <SubType>Designer</SubType>

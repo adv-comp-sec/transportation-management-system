@@ -44,7 +44,9 @@
 
             <DataGrid x:Name="rateFeesTable"  CanUserAddRows="true" AutoGenerateColumns="True"  Margin="26,172,26,133" Grid.Row="1"  />
 
-            <Button Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="638,73,0,0" Grid.Row="1" VerticalAlignment="Top" Click="saveBtn_Click" />
+            <Button Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="584,10,0,0" Grid.Row="1" VerticalAlignment="Top" Click="saveBtn_Click" Height="38" Width="100" />
+            <Button x:Name="addBtn" Content="Add" HorizontalAlignment="Left" Margin="568,67,0,0" VerticalAlignment="Top" Height="32" Width="132" Background="Black" Foreground="White" Click="addBtn_Click" Grid.Row="1"/>
+            <Button x:Name="deleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="568,115,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White" Click="deleteBtn_Click" Grid.Row="1"/>
 
 
         </Grid>
