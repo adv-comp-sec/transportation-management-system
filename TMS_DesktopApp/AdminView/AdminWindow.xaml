@@ -10,7 +10,7 @@
         <StackPanel Margin="20,145,1046,20">
             <Button Name ="settingsBtn" Content="Settings" Height="50" Margin="0,0,0,10" Click="settingsBtn_Click" />
             <Button x:Name ="manageDBBtn" Content="Manage Database" Height="50"  Margin="0,0,0,10" Click="manageDBBtn_Click"/>
-            <Button Name ="logBtn" Content="View log files" Height="50" Margin="0,0,0,10"/>
+            <Button Name ="logBtn" Content="View log files" Height="50" Margin="0,0,0,10" Click="logBtn_Click"/>
             <Button Name ="backupBtn" Content="Start Backup" Height="50" Margin="0,0,0,10"/>
         </StackPanel>
   

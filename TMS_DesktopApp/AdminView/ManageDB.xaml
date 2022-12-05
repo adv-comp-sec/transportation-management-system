@@ -44,7 +44,7 @@
 
             <DataGrid x:Name="rateFeesTable"  CanUserAddRows="true" AutoGenerateColumns="True"  Margin="26,172,26,133" Grid.Row="1"  />
 
-            <Button Name="saveBtn" Content="Button" HorizontalAlignment="Left" Margin="638,73,0,0" Grid.Row="1" VerticalAlignment="Top" Click="saveBtn_Click" />
+            <Button Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="638,73,0,0" Grid.Row="1" VerticalAlignment="Top" Click="saveBtn_Click" />
 
 
         </Grid>

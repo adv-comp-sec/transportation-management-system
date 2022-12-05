@@ -22,9 +22,9 @@
         <Label x:Name="lbl_Port" Content="Port" HorizontalAlignment="Left" Margin="68,265,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular" Height="35"/>
         <TextBox x:Name="txt_Directory_Path" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Directory" VerticalAlignment="Top" Width="200" Height="35" FontSize="16" VerticalContentAlignment="Center" UseLayoutRounding="False" Padding="10,0,0,0" Margin="204,410,0,0"/>
         <Label x:Name="lbl_Directory" Content="Directory path" HorizontalAlignment="Left" Margin="68,410,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular" Height="35"/>
-        <Button x:Name="btn_SaveDirectory" Content="Save directory" HorizontalAlignment="Left" Margin="441,410,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White"/>
+        <Button x:Name="btn_SaveDirectory" Content="Save directory" HorizontalAlignment="Left" Margin="441,410,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White" Click="btn_SaveDirectory_Click"/>
         <Label x:Name="lbl_Browse" Content="Browse from folder" HorizontalAlignment="Left" Margin="68,459,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Regular" Height="35" RenderTransformOrigin="0.473,2.729"/>
-        <Button x:Name="btn_BrowseDirectory" Content="Browse directory" HorizontalAlignment="Left" Margin="238,460,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White" />
+        <Button x:Name="btn_BrowseDirectory" Content="Browse directory" HorizontalAlignment="Left" Margin="238,460,0,0" VerticalAlignment="Top" Height="33" Width="132" Background="Black" Foreground="White" Click="btn_BrowseDirectory_Click"/>
 
     </Grid>
 </Page>

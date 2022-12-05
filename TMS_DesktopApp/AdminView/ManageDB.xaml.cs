@@ -17,6 +17,9 @@ using MySqlX.XDevAPI.Relational;
 using System.Data;
 using System.Windows.Controls.Primitives;
 
+using System.Data.SqlClient;
+using static TMS_DesktopApp.AdminSettings;
+
 namespace TMS_DesktopApp
 {
     /// <summary>
@@ -30,6 +33,8 @@ namespace TMS_DesktopApp
 
         MySqlConnection conn = new DataAccess().Connect_TMS_DB();
 
+        private int DB_Number;
+
 
         public ManageDB()
         {
@@ -40,31 +45,34 @@ namespace TMS_DesktopApp
         DataSet ds = new DataSet();
         private void rateBtn_Checked(object sender, RoutedEventArgs e)
         {
+            DB_Number = 2;
             carrierTable.Visibility = Visibility.Collapsed;
             routeTable.Visibility = Visibility.Collapsed;
             rateFeesTable.Visibility = Visibility.Visible;
-            PopulateTable(2);
+            PopulateTable(DB_Number);
 
         }
 
         private void carrierBtn_Checked(object sender, RoutedEventArgs e)
         {
+            DB_Number = 0;
             rateFeesTable.Visibility = Visibility.Collapsed;
             routeTable.Visibility = Visibility.Collapsed;
             carrierTable.Visibility = Visibility.Visible;
-            PopulateTable(0);
-          
-         
+            PopulateTable(DB_Number);
+
+
         }
 
 
 
         private void routeBtn_Checked(object sender, RoutedEventArgs e)
         {
+            DB_Number = 1;
             rateFeesTable.Visibility = Visibility.Collapsed;
             carrierTable.Visibility = Visibility.Collapsed;
             routeTable.Visibility = Visibility.Visible;
-            PopulateTable(1);
+            PopulateTable(DB_Number);
 
 
         }
@@ -77,7 +85,7 @@ namespace TMS_DesktopApp
 
 
 
-         
+
             string cmd = "";
             if (DB_number == 0)
             {
@@ -114,40 +122,134 @@ namespace TMS_DesktopApp
         {
             string selected = routeTable.SelectedIndex.ToString();
             var row = routeTable.SelectedItems;
+
         }
 
 
 
-        //private void rateFeesTable_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
-        //{
-        //string selected = rateFeesTable.SelectedIndex.ToString();
-        //var row = rateFeesTable.SelectedItems;
-        //}
+        private void rateFeesTable_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            string selected = rateFeesTable.SelectedIndex.ToString();
+            var row = rateFeesTable.SelectedItems;
+        }
 
 
-   
-     ///=========================this function needs to be fix==================
+
+        ///=========================this function needs to be fix==================
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-           
+            // i dont know~~~~~~~~~~~~~~~~~~~~~~I dont know~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             var selectedContract = dsCarriers.Tables[0].Rows[carrierTable.SelectedIndex].ItemArray;
-            //Remove selected row
-            dsCarriers.Tables[0].Rows.RemoveAt(carrierTable.SelectedIndex);
+
+
+            // dsCarriers.Tables[0].Rows.RemoveAt(carrierTable.SelectedIndex);
+
             MySqlConnection conn = new DataAccess().Connect_TMS_DB();
 
-            string cmdText = $"DELETE from carriers WHERE cName={selectedContract[0]} AND dCity={selectedContract[1]};";
-            MySqlCommand cmd = new MySqlCommand(cmdText, conn);
-            //cmdText = $"INSERT INTO carriers(cName,dCity,FTLA,LTLA,FTLRate,LTLRate,reefCharge) " +
-            // $"VALUES ('{selectedContract[0]}','{selectedContract[1]}','{selectedContract[2]}','{selectedContract[3]}','{selectedContract[4]}', '{selectedContract[5]}','{selectedContract[6]}');";
-            //cmd = new MySqlCommand(cmdText, conn);
-            conn.Open();
-            cmd.ExecuteNonQuery();
+            // //쿼리
+            // //변수.excuteNonQuery
+            MySqlDataAdapter daCarrier = new MySqlDataAdapter();
+
+
+
+            //string cmdText = $"UPDATAE carriers;";
+            // //string cmdText = $"DELETE FROM carriers WHERE cName = 'newCarrier'";
+            //daCarrier.SelectCommand = new MySqlCommand(cmdText, conn);
+            //MySqlCommandBuilder comb = new MySqlCommandBuilder(daCarrier);
+            //conn.Open();
+            //daCarrier.Fill(dsCarriers, "carriers");
+
+            //daCarrier.Update(dsCarriers);
+
+
+
+            //MySqlCommand cmd = new MySqlCommand(cmdText, conn);
+
+            //cmd.ExecuteNonQuery();
+
+
+
+
+
+
             conn.Close();
 
             // if update / add/ delete success, show messagebox
 
         }
 
-     
+        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MySqlConnection conn = new DataAccess().Connect_TMS_DB();
+            string cmdText = "";
+
+            if (DB_Number == 0)
+            {
+                var selectedContract = dsCarriers.Tables[0].Rows[carrierTable.SelectedIndex].ItemArray;
+                cmdText = "DELETE FROM carriers WHERE cName=" + "\"" + selectedContract[0] + "\"" + " AND dCity=" + "\"" + selectedContract[1] + "\"";
+                new LogWriter("1 Data deleted from carrier table");
+            }
+            else if (DB_Number == 1)
+            {
+                var selectedContract = dsRoutes.Tables[0].Rows[routeTable.SelectedIndex].ItemArray;
+                cmdText = "DELETE FROM routes WHERE routeID=" + selectedContract[0];
+                new LogWriter("1 Data deleted from route table");
+            }
+            else if (DB_Number == 2)
+            {
+                var selectedContract = dsRateFees.Tables[0].Rows[rateFeesTable.SelectedIndex].ItemArray;
+                cmdText = "DELETE FROM carriers WHERE cName=" + "\"" + selectedContract[0] + "\"";
+                new LogWriter("1 Data deleted from rate table");
+
+            }
+
+            MySqlCommand cmd = new MySqlCommand(cmdText, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Delete Success!", "Success");
+            ds.Clear();
+            PopulateTable(DB_Number);
+        }
+
+        private void addBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MySqlConnection conn = new DataAccess().Connect_TMS_DB();
+            string cmdText = "";
+
+            conn.Open();
+
+            if (DB_Number == 0)
+            {
+                var selectedContract = dsCarriers.Tables[0].Rows[carrierTable.SelectedIndex].ItemArray;
+                cmdText = $"INSERT INTO carriers(cName,dCity,FTLA,LTLA,FTLRate,LTLRate,reefCharge) " +
+                $"VALUES ('{selectedContract[0]}','{selectedContract[1]}','{selectedContract[2]}','{selectedContract[3]}','{selectedContract[4]}', '{selectedContract[5]}','{selectedContract[6]}');";
+                new LogWriter("1 Data added to carrier table");
+            }
+            else if (DB_Number == 1)
+            {
+                var selectedContract = dsRoutes.Tables[0].Rows[routeTable.SelectedIndex].ItemArray;
+                cmdText = $"INSERT INTO routes(routeId,location,locationReference,distance,timeInHours) " +
+                $"VALUES ('{selectedContract[0]}','{selectedContract[1]}','{selectedContract[2]}','{selectedContract[3]}','{selectedContract[4]}');";
+                new LogWriter("1 Data added to route table");
+            }
+            else if (DB_Number == 2)
+            {
+                var selectedContract = dsRateFees.Tables[0].Rows[rateFeesTable.SelectedIndex].ItemArray;
+                cmdText = $"INSERT INTO carriers(cName,dCity,FTLA,LTLA,FTLRate,LTLRate,reefCharge) " +
+                $"VALUES ('{selectedContract[0]}','0','0','0','{selectedContract[1]}','{selectedContract[2]}','{selectedContract[3]}');";
+                new LogWriter("1 Data added to rate table");
+            }
+
+            MySqlCommand cmd = new MySqlCommand(cmdText, conn);
+
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Add Success!", "Success");
+            ds.Clear();
+            PopulateTable(DB_Number);
+
+
+        }
     }
 }
