@@ -15,11 +15,9 @@
         <StackPanel Margin="20 50 20 20">
             <Button Content="Received Orders" Height="50" Margin="0,0,0,10" Click="Button_Click_1" />
             <Button Content="Confirmed Orders" Height="50" Margin="0,0,0,10" Click="Button_Click"/>
-            <Button Content="Logout" Height="50" Margin="0,0,0,10"/>
+            <Button x:Name="btn_Logout" Content="Logout" Height="50" Margin="0,0,0,10" Click="btn_Logout_Click" />
         </StackPanel>
 
         <Frame Grid.Column="1" x:Name="PlannerFrame" Content=""  NavigationUIVisibility="Hidden"/>
-
-
     </Grid>
 </Page>
