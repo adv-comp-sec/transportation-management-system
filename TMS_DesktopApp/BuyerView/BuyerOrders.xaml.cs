@@ -156,9 +156,12 @@ namespace TMS_DesktopApp.BuyerView
 
             total = (cost * taxRate / 100) + cost;      // add tax rate to the subtotal
 
+
+            DownloadInvoice_Click();//create file
+
         }
 
-        private void btn_DownloadInvoice_Click(object sender, RoutedEventArgs e)
+        private void DownloadInvoice_Click()
         {
             try
             {

@@ -42,7 +42,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel >
                 <Button x:Name="btn_GenerateInvoice" Content="Generate Invoice"  Height="37" Width="90" Click="btn_GenerateInvoice_Click" />
-                <Button x:Name="btn_DownloadInvoice" Content="Download Invoice"  Height="37" Width="62" Click="btn_DownloadInvoice_Click"   />
+      
             </StackPanel>
 
         </Grid>
