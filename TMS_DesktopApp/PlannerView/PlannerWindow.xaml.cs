@@ -36,5 +36,10 @@ namespace TMS_DesktopApp.PlannerView
         {
             PlannerFrame.NavigationService.Navigate(new ReceivedOrders());
         }
+
+        private void btn_Logout_Click(object sender)
+        {
+            this.NavigationService.Navigate(new HomePage());
+        }
     }
 }
