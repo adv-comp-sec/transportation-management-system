@@ -135,46 +135,46 @@ namespace TMS_DesktopApp
 
 
 
-        ///=========================this function needs to be fix==================
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
-            // i dont know~~~~~~~~~~~~~~~~~~~~~~I dont know~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            var selectedContract = dsCarriers.Tables[0].Rows[carrierTable.SelectedIndex].ItemArray;
-
-
-            // dsCarriers.Tables[0].Rows.RemoveAt(carrierTable.SelectedIndex);
 
             MySqlConnection conn = new DataAccess().Connect_TMS_DB();
 
-            // //쿼리
-            // //변수.excuteNonQuery
-            MySqlDataAdapter daCarrier = new MySqlDataAdapter();
+
+            string cmdText = "";
+
+            if (DB_Number == 0)
+            {
+                var selectedContract = dsCarriers.Tables[0].Rows[carrierTable.SelectedIndex].ItemArray;
+
+                cmdText = $"UPDATE carriers SET cName=" + "\"" + selectedContract[0] + "\"" + ", dCity=" + "\"" + selectedContract[1] + "\"" + ", FTLA=" + selectedContract[2] + ", LTLA=" + selectedContract[3] + " ,FTLRate=" + selectedContract[4] +
+                          " ,LTLRate=" + selectedContract[5] + ", reefCharge=" + selectedContract[6] + " WHERE cName=" + "\"" + selectedContract[0] + "\"" + " AND dCity=" + "\"" + selectedContract[1] + "\"";
 
 
 
-            //string cmdText = $"UPDATAE carriers;";
-            // //string cmdText = $"DELETE FROM carriers WHERE cName = 'newCarrier'";
-            //daCarrier.SelectCommand = new MySqlCommand(cmdText, conn);
-            //MySqlCommandBuilder comb = new MySqlCommandBuilder(daCarrier);
-            //conn.Open();
-            //daCarrier.Fill(dsCarriers, "carriers");
+            }
+            else if (DB_Number == 1)
+            {
+                var selectedContract = dsRoutes.Tables[0].Rows[routeTable.SelectedIndex].ItemArray;
+                cmdText = "UPDATE routes SET location=" + "\"" + selectedContract[1] + "\"" + ",locationReference=" + "\"" + selectedContract[2] + "\"" + ",distance=" + selectedContract[3] + ",timeInHours=" + selectedContract[4] + " WHERE routeId=" + selectedContract[0];
 
-            //daCarrier.Update(dsCarriers);
+            }
+            else if (DB_Number == 2)
+            {
+                var selectedContract = dsRateFees.Tables[0].Rows[rateFeesTable.SelectedIndex].ItemArray;
+                cmdText = "UPDATE carriers SET cName=" + "\"" + selectedContract[0] + "\"" + " ,FTLRate=" + selectedContract[1] + " ,LTLRate=" + selectedContract[2] + ", reefCharge=" + selectedContract[3] + "WHERE cName=" + "\"" + selectedContract[0] + "\"";
 
+            }
 
-
-            //MySqlCommand cmd = new MySqlCommand(cmdText, conn);
-
-            //cmd.ExecuteNonQuery();
-
-
-
-
-
-
+            MySqlCommand cmd = new MySqlCommand(cmdText, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
             conn.Close();
+            MessageBox.Show("Update Success!", "Success");
+            ds.Clear();
+            PopulateTable(DB_Number);
 
-            // if update / add/ delete success, show messagebox
+
 
         }
 

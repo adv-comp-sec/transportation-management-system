@@ -39,7 +39,7 @@
 
 
             <DataGrid x:Name="routeTable"  SelectedCellsChanged="routeTable_SelectedCellsChanged" CanUserAddRows="true" AutoGenerateColumns="True"  Margin="26,172,26,133" Grid.Row="1"  >
-            
+
             </DataGrid>
 
             <DataGrid x:Name="rateFeesTable"  CanUserAddRows="true" AutoGenerateColumns="True"  Margin="26,172,26,133" Grid.Row="1"  />

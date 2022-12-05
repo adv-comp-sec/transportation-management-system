@@ -32,6 +32,8 @@ namespace TMS_DesktopApp
         private void settingsBtn_Click(object sender, RoutedEventArgs e)
         {
             AdminContent.Content = new AdminSettings();
+
+ 
         }
 
         private void manageDBBtn_Click(object sender, RoutedEventArgs e)
