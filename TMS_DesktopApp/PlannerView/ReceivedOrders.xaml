@@ -55,7 +55,7 @@
                     <DataGridTextColumn Header="Carrier" Width="*" Binding="{Binding Carrier}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="btn_Calculate" Content="Calculate Trip Details" HorizontalAlignment="Left"  Height="37" Width="128" Margin="20,0,0,0" />
+            <Button x:Name="btn_Calculate" Content="Calculate Trip Details" HorizontalAlignment="Left"  Height="37" Width="128" Margin="20,0,0,0" Click="btn_Calculate_Click" />
             <Button x:Name="btn_Remove" Content="Remove" HorizontalAlignment="Right"  Height="37" Width="128" Margin="0,0,20,0" Click="btn_Remove_Click" />
             <Button x:Name="btn_ConfirmTrips" Content="Confirm Trips" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="37" Width="81" Margin="0,0,20,20"/>
         </Grid>
