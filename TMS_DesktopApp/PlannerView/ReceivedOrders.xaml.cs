@@ -1,11 +1,13 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Utilities.Collections;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -214,6 +216,29 @@ namespace TMS_DesktopApp.PlannerView
             string cmd = "SELECT * FROM routes;";
             MySqlDataAdapter da = new MySqlDataAdapter(cmd, conn);
             da.Fill(routeTable);
+        }
+
+        private void btn_ConfirmTrips_Click(object sender, RoutedEventArgs e)
+        {
+            //GET VALUES OF TRIP
+            var dtTrip = dtTrips.Rows[0].ItemArray;
+
+            MySqlConnection conn = new DataAccess().ConnectTmsDB();
+            //update order table with order status
+            string cmdText = $"UPDATE orders SET OrderStatus = 'Confirmed' WHERE OrderID = {dtTrip[0]};";
+            MySqlCommand cmd = new MySqlCommand(cmdText, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+  
+
+            //add new entry to trip table
+            cmdText = $"INSERT INTO trips(OrderID, Distance, Hours, Days, Price, Carrier) VALUES({dtTrip[0]}, '{dtTrip[4]}', '{dtTrip[5]}', '{dtTrip[6]}', '{dtTrip[7]}', '{dtTrip[8]}');";
+            cmd = new MySqlCommand(cmdText, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            //REMOVE TRIP
+            dtTrips.Rows[0].Delete(); 
         }
     }
 }

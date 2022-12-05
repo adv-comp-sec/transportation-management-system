@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.Cms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace TMS_DesktopApp.PlannerView
         public PlannerWindow()
         {
             InitializeComponent();
+            PlannerFrame.NavigationService.Navigate(new ReceivedOrders());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PlannerFrame.NavigationService.Navigate(new ConfirmedOrders());
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
             PlannerFrame.NavigationService.Navigate(new ReceivedOrders());
         }
     }

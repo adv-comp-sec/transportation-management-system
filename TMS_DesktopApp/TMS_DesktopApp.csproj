@@ -157,6 +157,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PlannerView\ConfirmedOrders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlannerView\PlannerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +171,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlannerView\ConfirmedOrders.xaml.cs">
+      <DependentUpon>ConfirmedOrders.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlannerView\PlannerWindow.xaml.cs">
       <DependentUpon>PlannerWindow.xaml</DependentUpon>
     </Compile>
